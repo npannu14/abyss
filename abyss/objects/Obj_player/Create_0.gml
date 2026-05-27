@@ -1,3 +1,4 @@
+global.chat_open = false;
 //MOVEMENT
 boost_speed = 8;
 hsp = 0;

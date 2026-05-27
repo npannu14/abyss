@@ -5,9 +5,8 @@
   "resources": [
     {"id":{"name":"Spr_Item","path":"sprites/Spr_Item/Spr_Item.yy",},"order":2,},
     {"id":{"name":"Obj_Item","path":"objects/Obj_Item/Obj_Item.yy",},"order":2,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"Spr_player","path":"sprites/Spr_player/Spr_player.yy",},"order":0,},
-    {"id":{"name":"Obj_NPC","path":"objects/Obj_NPC/Obj_NPC.yy",},"order":1,},
-    {"id":{"name":"Spr_NPC","path":"sprites/Spr_NPC/Spr_NPC.yy",},"order":1,},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
@@ -30,6 +29,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy","order":3,},

@@ -1,4 +1,4 @@
-//MOVEMENT
+//0-GRAVITY MOVEMENT
 var mx = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 var my = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 
@@ -21,24 +21,27 @@ if (cur_speed > maxspd)
 
 x += hsp;
 y += vsp;
-//MOVEMENT
+//0-GRAVITY MOVEMENT
 
 //BOB
-var moving = (abs(hsp) > 0.1 || abs(vsp) > 0.1);
-
-if (moving)
+if room != Room2
 {
-    idle_time = 0;
-    idle_y = y;
-}
-else
-{
-    idle_time++;
+    var moving = (abs(hsp) > 0.1 || abs(vsp) > 0.1);
 
-    if (idle_time > 5)
+    if (moving)
     {
-        float_timer += 0.07;
-        y = idle_y + sin(float_timer) * 6;
+        idle_time = 0;
+        idle_y = y;
+    }
+    else
+    {
+        idle_time++;
+
+        if (idle_time > 5)
+        {
+            float_timer += 0.07;
+            y = idle_y + sin(float_timer) * 6;
+        }
     }
 }
 //BOB
@@ -50,6 +53,30 @@ if keyboard_check_pressed(vk_space)
     vsp *= boost_speed;
 }
 //BOOST
+
+//REGULAR MOVEMENT
+if room != Room2
+{
+    // Zero gravity friction/bobbing here
+
+    float_timer += 0.07;
+    y = idle_y + sin(float_timer) * 6;
+
+    hsp *= 0.98;
+    vsp *= 0.98;
+}
+
+if room == Room2
+{
+    // Regular movement
+    move_speed = 4;
+}
+else
+{
+    // Zero gravity movement
+    move_speed = 7;
+}
+//REGULAR MOVEMENT
 
 //COLLECT
 if keyboard_check_pressed(ord("E"))
@@ -86,3 +113,20 @@ if keyboard_check_pressed(ord("E"))
 //COUNT
 
 //COUNT
+
+//RESTART
+if keyboard_check_pressed(ord("R"))
+{
+    room_restart();
+}
+//RESTART
+
+//CHAT
+if global.chat_open
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        global.chat_open = false;
+    }
+}
+//
