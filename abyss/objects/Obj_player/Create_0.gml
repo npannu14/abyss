@@ -1,4 +1,4 @@
-global.chat_open = false;
+
 //MOVEMENT
 boost_speed = 8;
 hsp = 0;
@@ -10,14 +10,4 @@ maxspd = 5;
 
 //BOB
 float_timer = 0;
-idle_y = y;
-idle_time = 0;
 //BOB
-
-//COLLECTED
-has_item = false
-//COLLECTED
-
-//COUNT
-items = 0;
-//COUNT
