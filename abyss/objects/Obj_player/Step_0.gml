@@ -56,7 +56,8 @@ if keyboard_check_pressed(ord("E"))
 
     if (item != noone)
     {
-        show_debug_message("Item Collected");
+        pickup_message = "Item Collected!";
+        pickup_timer = 60;
 
         with (item)
         {
@@ -65,9 +66,23 @@ if keyboard_check_pressed(ord("E"))
     }
 }
 
+if (pickup_timer > 0)
+{
+    pickup_timer--;
+}
+
 
 // RESTART
 if keyboard_check_pressed(ord("R"))
 {
     room_restart();
+}
+
+// wtf man
+if place_meeting(x, y, Obj_Door)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(Room2);
+    }
 }
