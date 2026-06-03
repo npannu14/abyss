@@ -1,5 +1,3 @@
-// MOVEMENT
-
 if room == Room2
 {
     // NORMAL MOVEMENT
@@ -28,7 +26,6 @@ else
         vsp = lengthdir_y(maxspd, dir);
     }
 
-    // IDLE BOB
     var moving = (abs(hsp) > 0.1 || abs(vsp) > 0.1);
 
     if (!moving)
@@ -43,6 +40,26 @@ if keyboard_check_pressed(vk_space)
 {
     hsp *= boost_speed;
     vsp *= boost_speed;
+}
+
+//DASH
+if room == Room2
+{
+    if keyboard_check_pressed(vk_shift)
+    {
+        if (hsp != 0 || vsp != 0)
+        {
+            dash_dir = point_direction(0, 0, hsp, vsp);
+            dash_timer = 8;
+        }
+    }
+}
+if dash_timer > 0
+{
+    dash_timer--;
+
+    x += lengthdir_x(12, dash_dir);
+    y += lengthdir_y(12, dash_dir);
 }
 
 // APPLY MOVEMENT
@@ -78,11 +95,29 @@ if keyboard_check_pressed(ord("R"))
     room_restart();
 }
 
-// wtf man
+//ENTER DOOR
 if place_meeting(x, y, Obj_Door)
 {
     if keyboard_check_pressed(vk_enter)
     {
         room_goto(Room2);
     }
+}
+
+// SPRITES MOVEMENT
+if keyboard_check(ord("W"))
+{
+    sprite_index = Spr_player_up;
+}
+else if keyboard_check(ord("S"))
+{
+    sprite_index = Spr_player_down;
+}
+else if keyboard_check(ord("A"))
+{
+    sprite_index = Spr_player_left;
+}
+else if keyboard_check(ord("D"))
+{
+    sprite_index = Spr_player_right;
 }

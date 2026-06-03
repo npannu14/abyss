@@ -16,3 +16,6 @@ float_timer = 0;
 pickup_message = "";
 pickup_timer = 0;
 
+// DASH
+dash_timer = 0;
+dash_dir = 0;
