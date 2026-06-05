@@ -19,3 +19,7 @@ pickup_timer = 0;
 // DASH
 dash_timer = 0;
 dash_dir = 0;
+
+//LADY LIPS
+talk_text = "";
+talk_timer = 0;

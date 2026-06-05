@@ -104,20 +104,69 @@ if place_meeting(x, y, Obj_Door)
     }
 }
 
-// SPRITES MOVEMENT
-if keyboard_check(ord("W"))
+// SPRITES FOR MOVING
+
+if room == Room2
 {
-    sprite_index = Spr_player_up;
+    if keyboard_check(ord("W"))
+    {
+        sprite_index = Spr_player_walk_up;
+    }
+    else if keyboard_check(ord("S"))
+    {
+        sprite_index = Spr_player_walk_down;
+    }
+    else if keyboard_check(ord("A"))
+    {
+        sprite_index = Spr_player_walk_left;
+    }
+    else if keyboard_check(ord("D"))
+    {
+        sprite_index = Spr_player_walk_right;
+    }
+    else
+    {
+        if sprite_index == Spr_player_walk_up
+            sprite_index = Spr_player_up_idle;
+
+        else if sprite_index == Spr_player_walk_down
+            sprite_index = Spr_player_down_idle;
+
+        else if sprite_index == Spr_player_walk_left
+            sprite_index = Spr_player_left_idle;
+
+        else if sprite_index == Spr_player_walk_right
+            sprite_index = Spr_player_right_idle;
+    }
 }
-else if keyboard_check(ord("S"))
+else
 {
-    sprite_index = Spr_player_down;
+    if keyboard_check(ord("W"))
+    {
+        sprite_index = Spr_player_up;
+    }
+    else if keyboard_check(ord("S"))
+    {
+        sprite_index = Spr_player_down;
+    }
+    else if keyboard_check(ord("A"))
+    {
+        sprite_index = Spr_player_left;
+    }
+    else if keyboard_check(ord("D"))
+    {
+        sprite_index = Spr_player_right;
+    }
 }
-else if keyboard_check(ord("A"))
+
+//TALK TO LADY LIPS
+if keyboard_check_pressed(ord("c"))
 {
-    sprite_index = Spr_player_left;
-}
-else if keyboard_check(ord("D"))
-{
-    sprite_index = Spr_player_right;
+    var npc = instance_nearest(x, y, Obj_lady_lips);
+
+    if (npc != noone)
+    {
+        npc.talk_text = "Hello.";
+        npc.talk_timer = 180;
+    }
 }
