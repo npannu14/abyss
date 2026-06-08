@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "abyss",
-    "path": "abyss.yyp",
+    "name": "Idle",
+    "path": "folders/Sprites/Player/Idle.yy",
   },
 }

@@ -20,6 +20,7 @@ pickup_timer = 0;
 dash_timer = 0;
 dash_dir = 0;
 
-//LADY LIPS
-talk_text = "";
-talk_timer = 0;
+// HAS THE ITEM
+has_item = false;
+
+

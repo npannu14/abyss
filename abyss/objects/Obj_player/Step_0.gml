@@ -73,7 +73,9 @@ if keyboard_check_pressed(ord("E"))
 
     if (item != noone)
     {
-        pickup_message = "Item Collected!";
+        has_item = true;
+
+        pickup_message = "Lady Lips Eye Collected!";
         pickup_timer = 60;
 
         with (item)
@@ -82,12 +84,6 @@ if keyboard_check_pressed(ord("E"))
         }
     }
 }
-
-if (pickup_timer > 0)
-{
-    pickup_timer--;
-}
-
 
 // RESTART
 if keyboard_check_pressed(ord("R"))
@@ -157,16 +153,90 @@ else
     {
         sprite_index = Spr_player_right;
     }
+	
 }
-
-//TALK TO LADY LIPS
-if keyboard_check_pressed(ord("c"))
+	
+// TALK TO LADY LIPS
+if keyboard_check_pressed(ord("C"))
 {
     var npc = instance_nearest(x, y, Obj_lady_lips);
 
-    if (npc != noone)
+    if (npc != noone && point_distance(x, y, npc.x, npc.y) < 80)
     {
-        npc.talk_text = "Hello.";
-        npc.talk_timer = 180;
+        // First greeting
+        if (npc.dialogue_stage == 0)
+        {
+            npc.npc_text = "Who are you?";
+            npc.npc_timer = 999;
+            npc.show_choices = true;
+        }
+
+        // After greeting is finished
+        else if (npc.dialogue_stage == 1)
+        {
+            npc.npc_text = "Find me the Eye of Veyras.";
+            npc.npc_timer = 180;
+        }
+    }
+}
+
+// CHOICE 1
+if keyboard_check_pressed(ord("1"))
+{
+    var npc = instance_nearest(x, y, Obj_lady_lips);
+
+    if (npc != noone && npc.show_choices)
+    {
+        npc.npc_text = "Find me the Eye of Veyras and I'll help you escape.";
+        npc.npc_timer = 180;
+        npc.show_choices = false;
+        npc.dialogue_stage = 1;
+    }
+}
+
+// CHOICE 2
+if keyboard_check_pressed(ord("2"))
+{
+    var npc = instance_nearest(x, y, Obj_lady_lips);
+
+    if (npc != noone && npc.show_choices)
+    {
+        npc.npc_text = "How rude.";
+        npc.npc_timer = 180;
+        npc.show_choices = false;
+        npc.dialogue_stage = 1;
+    }
+}
+// GIVE LADY LIPS ITEM
+if keyboard_check_pressed(ord("C"))
+{
+    var npc = instance_nearest(x, y, Obj_lady_lips);
+
+    if (npc != noone && point_distance(x, y, npc.x, npc.y) < 80)
+    {
+        if (has_item)
+        {
+            has_item = false;
+
+            npc.npc_text = "You found my eye. Thank you, the exit has been revealed.";
+            npc.npc_timer = 300;
+
+            var spawn = instance_find(Obj_DoorSpawn, 0);
+
+            if (spawn != noone)
+            {
+                instance_create_layer(
+                    spawn.x,
+                    spawn.y,
+                    "Instances",
+                    Obj_Door
+                );
+            }
+        }
+        else
+        {
+            npc.npc_text = "Find me my eye.";
+            npc.npc_timer = 180;
+        }
     }
 }
