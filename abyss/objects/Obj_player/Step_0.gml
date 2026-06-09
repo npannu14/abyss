@@ -75,7 +75,7 @@ if keyboard_check_pressed(ord("E"))
     {
         has_item = true;
 
-        pickup_message = "Lady Lips Eye Collected!";
+        pickup_message = "Item Collected!";
         pickup_timer = 60;
 
         with (item)
@@ -84,6 +84,17 @@ if keyboard_check_pressed(ord("E"))
         }
     }
 }
+
+// PICKUP MESSAGE TIMER
+if (pickup_timer > 0)
+{
+    pickup_timer--;
+}
+else
+{
+    pickup_message = "";
+}
+
 
 // RESTART
 if keyboard_check_pressed(ord("R"))
@@ -155,26 +166,52 @@ else
     }
 	
 }
-	
-// TALK TO LADY LIPS
+// TALK / GIVE ITEM TO LADY LIPS
 if keyboard_check_pressed(ord("C"))
 {
     var npc = instance_nearest(x, y, Obj_lady_lips);
 
     if (npc != noone && point_distance(x, y, npc.x, npc.y) < 80)
     {
-        // First greeting
-        if (npc.dialogue_stage == 0)
+        // Player has the eye
+        if (has_item)
+        {
+            has_item = false;
+
+            npc.npc_text = "You found my eye. Thank you, the exit has been revealed.";
+            npc.npc_timer = 300;
+            npc.show_choices = false;
+            npc.dialogue_stage = 2;
+
+            var spawn = instance_find(Obj_DoorSpawn, 0);
+
+            if (spawn != noone)
+            {
+                instance_create_layer(
+                    spawn.x,
+                    spawn.y,
+                    "Instances",
+                    Obj_Door
+                );
+            }
+        }
+        // First conversation
+        else if (npc.dialogue_stage == 0)
         {
             npc.npc_text = "Who are you?";
             npc.npc_timer = 999;
             npc.show_choices = true;
         }
-
-        // After greeting is finished
+        // Quest reminder
         else if (npc.dialogue_stage == 1)
         {
-            npc.npc_text = "Find me the Eye of Veyras.";
+            npc.npc_text = "Find me my eye.";
+            npc.npc_timer = 180;
+        }
+        // After quest completed
+        else if (npc.dialogue_stage == 2)
+        {
+            npc.npc_text = "The exit is open. Hurry.";
             npc.npc_timer = 180;
         }
     }
@@ -187,7 +224,7 @@ if keyboard_check_pressed(ord("1"))
 
     if (npc != noone && npc.show_choices)
     {
-        npc.npc_text = "Find me the Eye of Veyras and I'll help you escape.";
+        npc.npc_text = "Find me my eye and I'll help you escape.";
         npc.npc_timer = 180;
         npc.show_choices = false;
         npc.dialogue_stage = 1;
@@ -207,36 +244,4 @@ if keyboard_check_pressed(ord("2"))
         npc.dialogue_stage = 1;
     }
 }
-// GIVE LADY LIPS ITEM
-if keyboard_check_pressed(ord("C"))
-{
-    var npc = instance_nearest(x, y, Obj_lady_lips);
 
-    if (npc != noone && point_distance(x, y, npc.x, npc.y) < 80)
-    {
-        if (has_item)
-        {
-            has_item = false;
-
-            npc.npc_text = "You found my eye. Thank you, the exit has been revealed.";
-            npc.npc_timer = 300;
-
-            var spawn = instance_find(Obj_DoorSpawn, 0);
-
-            if (spawn != noone)
-            {
-                instance_create_layer(
-                    spawn.x,
-                    spawn.y,
-                    "Instances",
-                    Obj_Door
-                );
-            }
-        }
-        else
-        {
-            npc.npc_text = "Find me my eye.";
-            npc.npc_timer = 180;
-        }
-    }
-}
