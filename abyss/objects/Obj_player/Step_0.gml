@@ -244,3 +244,21 @@ if keyboard_check_pressed(ord("2"))
         npc.dialogue_stage = 1;
     }
 }
+
+// ENTER TONGUE DOOR
+if place_meeting(x, y, Obj_tongue_door)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(tonguelevel);
+	}
+}
+
+// ENTER TOOTH DOOR
+if place_meeting(x, y, Obj_tooth_door)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(toothlevel);
+	}
+}

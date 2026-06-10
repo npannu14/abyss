@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_lady_lips",
+  "name": "Obj_tongue_door",
   "spriteId": {
-    "name": "Spr_lady_lips",
-    "path": "sprites/Spr_lady_lips/Spr_lady_lips.yy",
+    "name": "Spr_tongue_door",
+    "path": "sprites/Spr_tongue_door/Spr_tongue_door.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,15 +25,12 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "npc",
-    "path": "folders/Objects/npc.yy",
+    "name": "object doors",
+    "path": "folders/Objects/object doors.yy",
   },
 }
