@@ -1,3 +1,4 @@
+
 if room == Room2
 {
     // NORMAL MOVEMENT
@@ -102,17 +103,16 @@ if keyboard_check_pressed(ord("R"))
     room_restart();
 }
 
-//ENTER DOOR
+// ENTER DOOR
 if place_meeting(x, y, Obj_Door)
 {
     if keyboard_check_pressed(vk_enter)
     {
-        room_goto(Room2);
+        room_goto_next();
     }
 }
 
 // SPRITES FOR MOVING
-
 if room == Room2
 {
     if keyboard_check(ord("W"))
@@ -171,7 +171,7 @@ if keyboard_check_pressed(ord("C"))
 {
     var npc = instance_nearest(x, y, Obj_lady_lips);
 
-    if (npc != noone && point_distance(x, y, npc.x, npc.y) < 80)
+    if (npc != noone && point_distance(x, y, npc.x, npc.y) < 200)
     {
         // Player has the eye
         if (has_item)
@@ -244,4 +244,3 @@ if keyboard_check_pressed(ord("2"))
         npc.dialogue_stage = 1;
     }
 }
-
