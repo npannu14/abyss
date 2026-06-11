@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Object9",
+  "name": "Obj_backtoroom2",
   "spriteId": {
-    "name": "Spr_player_block",
-    "path": "sprites/Spr_player_block/Spr_player_block.yy",
+    "name": "Spr_door",
+    "path": "sprites/Spr_door/Spr_door.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,14 +24,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "object doors",
+    "path": "folders/Objects/object doors.yy",
   },
 }

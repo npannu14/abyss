@@ -17,4 +17,9 @@ is_climbing = false;
 ground_object = Obj_ground;
 ladder_object = Obj_ladder;
 
-has_key = false;
+//KEY
+global.has_key = false;
+
+// ITEM COLLECTED
+pickup_message = "";
+pickup_timer = 0;

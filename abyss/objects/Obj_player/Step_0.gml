@@ -36,16 +36,10 @@ else
     }
 }
 
-// BOOST
-if keyboard_check_pressed(vk_space)
-{
-    hsp *= boost_speed;
-    vsp *= boost_speed;
-}
+
 
 //DASH
-if room == Room2
-{
+
     if keyboard_check_pressed(vk_shift)
     {
         if (hsp != 0 || vsp != 0)
@@ -54,7 +48,7 @@ if room == Room2
             dash_timer = 8;
         }
     }
-}
+
 if dash_timer > 0
 {
     dash_timer--;
@@ -74,7 +68,7 @@ if keyboard_check_pressed(ord("E"))
 
     if (item != noone)
     {
-        has_item = true;
+        global.has_item = true; 
 
         pickup_message = "Item Collected!";
         pickup_timer = 60;
@@ -111,6 +105,7 @@ if place_meeting(x, y, Obj_Door)
         room_goto_next();
     }
 }
+
 
 // SPRITES FOR MOVING
 if room == Room2
@@ -166,6 +161,17 @@ else
     }
 	
 }
+
+// ENTER DOOR
+if place_meeting(x, y, Obj_backtoroom2)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(Room2);
+    }
+}
+
+
 // TALK / GIVE ITEM TO LADY LIPS
 if keyboard_check_pressed(ord("C"))
 {
@@ -174,9 +180,9 @@ if keyboard_check_pressed(ord("C"))
     if (npc != noone && point_distance(x, y, npc.x, npc.y) < 200)
     {
         // Player has the eye
-        if (has_item)
+        if (global.has_item)
         {
-            has_item = false;
+            global.has_item = false
 
             npc.npc_text = "You found my eye. Thank you, the exit has been revealed.";
             npc.npc_timer = 300;

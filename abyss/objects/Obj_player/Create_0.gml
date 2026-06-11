@@ -21,6 +21,6 @@ dash_timer = 0;
 dash_dir = 0;
 
 // HAS THE ITEM
-has_item = false;
+global.has_item = false;
 
 

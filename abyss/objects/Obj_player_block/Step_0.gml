@@ -38,6 +38,43 @@ else
 // MOVE PLAYER
 move_and_collide(move_x, move_y, ground_object);
 
+// ENTER DOOR
+if place_meeting(x, y, Obj_Door)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto_next();
+    }
+}
+
+// ENTER DOOR
+if place_meeting(x, y, Obj_backtoroom2)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(Room2);
+    }
+}
+
+//COLLECT KEY
+if keyboard_check_pressed(ord("E"))
+{
+    var item = instance_place(x, y, Obj_key);
+
+    if (item != noone)
+    {
+        global.has_key = true;
+
+        pickup_message = "Key Collected!";
+        pickup_timer = 60;
+
+        with (item)
+        {
+            instance_destroy();
+        }
+    }
+}
+
 // OUT OF BOUNDS RESET
 if (x < -20 || x > room_width + 20 || y < -20 || y > room_height + 20)
 {

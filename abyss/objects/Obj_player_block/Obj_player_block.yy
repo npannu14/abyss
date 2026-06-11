@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_Door",
+  "name": "Obj_player_block",
   "spriteId": {
-    "name": "Spr_door",
-    "path": "sprites/Spr_door/Spr_door.yy",
+    "name": "Spr_player_block",
+    "path": "sprites/Spr_player_block/Spr_player_block.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,12 +25,14 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "object doors",
-    "path": "folders/Objects/object doors.yy",
+    "name": "player",
+    "path": "folders/Objects/player.yy",
   },
 }
