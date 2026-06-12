@@ -23,6 +23,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3941DF6C","properties":[],"isDnd":false,"objectId":{"name":"Obj_borders","path":"objects/Obj_borders/Obj_borders.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1280.0,"y":672.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6FD8071D","properties":[],"isDnd":false,"objectId":{"name":"Obj_borders","path":"objects/Obj_borders/Obj_borders.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.5,"scaleY":11.5,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1248.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_57BE142C","properties":[],"isDnd":false,"objectId":{"name":"Obj_menu_button","path":"objects/Obj_menu_button/Obj_menu_button.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2588C6BB","properties":[],"isDnd":false,"objectId":{"name":"Obj_static","path":"objects/Obj_static/Obj_static.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":96.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_5CB07822","spriteId":{"name":"Spr_teeth_border","path":"sprites/Spr_teeth_border/Spr_teeth_border.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":0.6666667,"scaleY":0.67407405,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
@@ -60,6 +61,7 @@
     {"name":"inst_3941DF6C","path":"rooms/toothlevel/toothlevel.yy",},
     {"name":"inst_6FD8071D","path":"rooms/toothlevel/toothlevel.yy",},
     {"name":"inst_57BE142C","path":"rooms/toothlevel/toothlevel.yy",},
+    {"name":"inst_2588C6BB","path":"rooms/toothlevel/toothlevel.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

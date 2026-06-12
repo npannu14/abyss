@@ -18,6 +18,7 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances_4","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_308919A","properties":[],"isDnd":false,"objectId":{"name":"Obj_menu_button","path":"objects/Obj_menu_button/Obj_menu_button.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":96.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_511BEDBB","properties":[],"isDnd":false,"objectId":{"name":"Obj_music","path":"objects/Obj_music/Obj_music.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":576.0,"y":96.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances_3","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_D594D28","properties":[],"isDnd":false,"objectId":{"name":"Obj_tongue_door","path":"objects/Obj_tongue_door/Obj_tongue_door.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.233561,"scaleY":1.335,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":704.0,"y":224.0,},
@@ -60,6 +61,7 @@
     {"name":"inst_1C956E09","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_3FD222B4","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_308919A","path":"rooms/Room2/Room2.yy",},
+    {"name":"inst_511BEDBB","path":"rooms/Room2/Room2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
