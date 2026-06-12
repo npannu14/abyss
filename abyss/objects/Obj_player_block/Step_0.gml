@@ -1,3 +1,9 @@
+// MENU
+if (keyboard_check_pressed(vk_escape))
+{
+    global.show_menu = false;
+}
+
 // INPUT (LEFT / RIGHT ONLY)
 move_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 move_x *= move_speed;
@@ -56,24 +62,27 @@ if place_meeting(x, y, Obj_backtoroom2)
     }
 }
 
-//COLLECT KEY
+// COLLECT KEY
 if keyboard_check_pressed(ord("E"))
 {
-    var item = instance_place(x, y, Obj_key);
+    var key = instance_place(x, y, Obj_key);
 
-    if (item != noone)
+    if (key != noone)
     {
         global.has_key = true;
 
         pickup_message = "Key Collected!";
         pickup_timer = 60;
 
-        with (item)
+        with (key)
         {
             instance_destroy();
         }
     }
 }
+
+// MENU
+global.show_menu = false;
 
 // OUT OF BOUNDS RESET
 if (x < -20 || x > room_width + 20 || y < -20 || y > room_height + 20)

@@ -1,3 +1,8 @@
+// MENU
+if (keyboard_check_pressed(vk_escape))
+{
+    global.show_menu = false;
+}
 
 if room == Room2
 {
@@ -171,6 +176,15 @@ if place_meeting(x, y, Obj_backtoroom2)
     }
 }
 
+// ENTER DOOREND
+if place_meeting(x, y, Obj_doorend)
+{
+    if keyboard_check_pressed(vk_enter)
+    {
+        room_goto(End);
+    }
+}
+
 
 // TALK / GIVE ITEM TO LADY LIPS
 if keyboard_check_pressed(ord("C"))
@@ -179,56 +193,54 @@ if keyboard_check_pressed(ord("C"))
 
     if (npc != noone && point_distance(x, y, npc.x, npc.y) < 200)
     {
-        // Player has the eye
+        // GIVE ITEM FIRST
         if (global.has_item)
         {
-            global.has_item = false
+            global.has_item = false;
+
+            npc.sprite_index = Spr_lady_lips_happy;
+            npc.dialogue_stage = 2;
 
             npc.npc_text = "You found my eye. Thank you, the exit has been revealed.";
             npc.npc_timer = 300;
             npc.show_choices = false;
-            npc.dialogue_stage = 2;
 
+            // SPAWN DOOR ONLY HERE
             var spawn = instance_find(Obj_DoorSpawn, 0);
 
             if (spawn != noone)
             {
-                instance_create_layer(
-                    spawn.x,
-                    spawn.y,
-                    "Instances",
-                    Obj_Door
-                );
+                instance_create_layer(spawn.x, spawn.y, "Instances", Obj_doorend);
             }
         }
-        // First conversation
-        else if (npc.dialogue_stage == 0)
+        else
         {
-            npc.npc_text = "Who are you?";
-            npc.npc_timer = 999;
-            npc.show_choices = true;
-        }
-        // Quest reminder
-        else if (npc.dialogue_stage == 1)
-        {
-            npc.npc_text = "Find me my eye.";
-            npc.npc_timer = 180;
-        }
-        // After quest completed
-        else if (npc.dialogue_stage == 2)
-        {
-            npc.npc_text = "The exit is open. Hurry.";
-            npc.npc_timer = 180;
+            // NORMAL DIALOGUE ONLY
+            if (npc.dialogue_stage == 0)
+            {
+                npc.npc_text = "Who are you?";
+                npc.npc_timer = 999;
+                npc.show_choices = true;
+            }
+            else if (npc.dialogue_stage == 1)
+            {
+                npc.npc_text = "Find me my eye.";
+                npc.npc_timer = 180;
+            }
+            else if (npc.dialogue_stage == 2)
+            {
+                npc.npc_text = "The exit is open. Hurry.";
+                npc.npc_timer = 180;
+            }
         }
     }
 }
-
 // CHOICE 1
 if keyboard_check_pressed(ord("1"))
 {
     var npc = instance_nearest(x, y, Obj_lady_lips);
 
-    if (npc != noone && npc.show_choices)
+    if (npc != noone && npc.show_choices == true && point_distance(x, y, npc.x, npc.y) < 200)
     {
         npc.npc_text = "Find me my eye and I'll help you escape.";
         npc.npc_timer = 180;
@@ -242,7 +254,7 @@ if keyboard_check_pressed(ord("2"))
 {
     var npc = instance_nearest(x, y, Obj_lady_lips);
 
-    if (npc != noone && npc.show_choices)
+    if (npc != noone && npc.show_choices == true && point_distance(x, y, npc.x, npc.y) < 200)
     {
         npc.npc_text = "How rude.";
         npc.npc_timer = 180;
@@ -265,6 +277,15 @@ if place_meeting(x, y, Obj_tooth_door)
 {
     if keyboard_check_pressed(vk_enter)
     {
-        room_goto(toothlevel);
-	}
+        if (global.has_key)
+        {
+            room_goto(toothlevel);
+        }
+        else
+        {
+            pickup_message = "The door is locked.";
+            pickup_timer = 120;
+        }
+    }
 }
+

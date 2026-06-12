@@ -1,0 +1,1 @@
+global.show_menu = !global.show_menu;
