@@ -31,7 +31,15 @@ if (!variable_global_exists("has_item"))
     global.has_item = false;
 }
 
-if (!variable_global_exists("lady_lips_helped"))
+// TUTORIAL MENU
+if (room == Room1)
 {
-    global.lady_lips_helped = false;
+    tutorial_message = "Click the Menu for Controls";
+    tutorial_timer = 300;
 }
+else
+{
+    tutorial_timer = 0;
+}
+
+// ROOM2

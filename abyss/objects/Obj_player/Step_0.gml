@@ -289,3 +289,8 @@ if place_meeting(x, y, Obj_tooth_door)
     }
 }
 
+// TUTORIAL
+if (tutorial_timer > 0)
+{
+    tutorial_timer--;
+}

@@ -20,3 +20,21 @@ draw_text(50, 460, "Click ESC to Close Menu");
 
     draw_set_color(c_white);
 }
+
+// TUTORIAL
+if (tutorial_timer > 0)
+{
+    draw_set_color(c_white);
+    draw_text(500, 50, "Click the Menu for Controls");
+}
+
+// HOVER NEAR DOORS
+
+// Normal door
+var door = instance_nearest(x, y, Obj_Door);
+
+if (door != noone && point_distance(x, y, door.x, door.y) < 80)
+{
+    draw_text(door.x - 40, door.y - 40, "Press ENTER");
+}
+
